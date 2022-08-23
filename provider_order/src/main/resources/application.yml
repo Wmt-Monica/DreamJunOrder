@@ -1,0 +1,59 @@
+server:
+  port: 9030
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 20MB
+      max-file-size: 20MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mengmengmeng0501
+    url: jdbc:mysql://106.12.108.72:3306/sell?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+  jpa:
+    show-sql: true
+  redis:
+    host: 106.12.108.72
+    port: 6379
+    password: mengmengmeng0501
+    #  cache:
+    #    redis:
+    #      time-to-live: 180000  # redis 缓存存活时间，不设置默认为永久保存
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+  mail:
+    host: smtp.qq.com
+    username: 3040988158@qq.com
+    password: fizpgtwdlepydgch
+    default-encoding: UTF-8
+    port: 465
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+  application:
+    name: nacos-provider-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.12.108.72:8848 #配置Nacos地址
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
